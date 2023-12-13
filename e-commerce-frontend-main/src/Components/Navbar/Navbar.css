@@ -1,0 +1,284 @@
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  box-shadow: 0 1px 3px -2px black;
+  /* background: linear-gradient(180deg, #717070e3, #e7e7eb3b); */
+  background: rgb(86, 85, 85);
+}
+
+.nav-logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo p{
+  color: #faf8f8a9;
+  font-size: 38px;
+  font-weight: 600;
+  padding: 10px 10px; /* Adjust padding for better spacing */
+  border-radius: 10px;
+  border: 2px solid #565454;
+  /* display: flex; */
+}
+
+.nav-menu{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+  color: #060000;
+  font-size: 20px;
+  font-weight: 550; 
+}
+
+.nav-menu li:hover{
+  transform: scale(1.55); 
+  transition: 0.6s;
+  background: #00000028;
+}
+
+.nav-menu li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  /* color: rgba(243, 243, 243, 0.465); */
+  font-size: 20px;
+  font-weight: 400;
+  color: #8c8c8c; /* Change to the desired shade of gray */
+
+}
+
+.nav-menu li a {
+  color: #fffbfb; /* Your preferred text color for active links */
+  text-decoration: none;
+}
+
+/* Thanh chon */
+.nav-menu hr{ 
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background: #454444;
+}
+
+.nav-login-cart{
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.nav-login-cart button{
+  width: 167px;
+  height: 58px;
+  outline: none; 
+  border: 1px solid grey;
+  border-radius: 75px; /*chinh cai khung bo tron*/
+  color: #fefcfcfc;
+  font-size: 20px;
+  font-weight: 600;
+  background: rgba(172, 172, 172, 0.843);
+  cursor: pointer;
+}
+
+.nav-login-cart button:active{ /*chinh hieu ung click*/
+  background: #716e6e;
+}
+
+.nav-cart-count{
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -35px;
+  margin-left: -55px; 
+  border-radius: 11px;
+  font-size: 14px;
+  background: red;
+  color: rgb(249, 242, 242); 
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.dropdown-toggle:hover {
+  background-color: rgb(70, 69, 65);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  list-style-type: none;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.dropdown button {
+  border-radius: 10px;
+  background-color: rgb(86, 85, 85);
+  color: #fffbfb;
+}
+
+.dropdown ul {
+  border-radius: 10px;
+}
+
+.dropdown button:active {
+  background-color: rgb(86, 85, 85);
+}
+
+/* Responsive styles for tablet (768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo p {
+    font-size: 28px;
+  }
+
+  /* ... (Other styles for tablet) ... */
+}
+
+
+@media (max-width: 480px) {
+
+  .nav-logo p {
+    font-size: 30px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+
+  .nav-menu.show-options {
+      display: block;
+    }
+
+  .nav-menu.collapsed {
+    display: none;
+  }
+
+  .nav-menu li {
+    display: block;
+    text-align: left;
+    padding: 10px; /* Adjust padding for better spacing */
+    border-bottom: 1px solid #ccc;
+  }
+
+  .nav-menu li:hover {
+      transform: scale(1); /* Điều chỉnh giá trị này để thay đổi kích thước khi hover */
+      transition: 0.6s;
+      background: #00000028;
+  }
+
+  .dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #333;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .menu-content {
+      display: flex;
+      align-items: center;
+  }
+
+  .dropdown-button span {
+      font-size: 25px; /* Kích thước của biểu tượng dropdown */
+      color: #faf8f8a9;
+  }
+
+  .menu-text {
+      margin-left: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+      font-size: 20px; /* Kích thước chữ */
+      font-weight: bold; /* Độ đậm của chữ */
+      color: #faf8f8a9;
+  }
+
+  .dropdown-button {
+    display: block; /* Hiển thị nút dropdown */
+    cursor: pointer;
+  }
+
+  .nav-login-cart {
+      display: flex;
+      flex-direction: column; /* Change to column layout for better arrangement */
+      align-items: center;
+      gap: 10px; /* Add gap between the button and the image */
+  }
+  
+    .nav-login-cart button {
+      width: 250px; /* Adjust button width */
+      height: 50px; /* Adjust button height */
+      font-size: 18px; /* Adjust font size */
+    }
+
+    .nav-cart-count{
+      width: 22px;
+      height: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -35px;
+      margin-left: -55px; 
+      border-radius: 11px;
+      font-size: 14px;
+      background: red;
+      color: rgb(196, 193, 193); 
+  }
+  
+}
+
+@media (min-width: 601px) {
+  .dropdown-button {
+    display: none;
+  }
+}

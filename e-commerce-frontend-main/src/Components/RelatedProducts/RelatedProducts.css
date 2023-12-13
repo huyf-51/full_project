@@ -1,0 +1,71 @@
+.relatedproducts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 90vh;
+}
+
+.relatedproducts h1 {
+  color: #171717;
+  font-size: 50px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.relatedproducts hr {
+  width: 200px;
+  height: 6px;
+  border-radius: 10px;
+  background: #252525;
+}
+
+.relatedproducts-item {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Adjustments for each item */
+.relatedproducts-item .item {
+  width: 300px; /* Set a fixed width for each item */
+  text-align: center; /* Center-align the text */
+}
+
+.relatedproducts-item img {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 10px;
+  display: block; /* Center the image horizontally */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+@media (max-width: 480px) {
+  .relatedproducts h1 {
+    color: #171717;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+
+  .relatedproducts-item {
+    justify-content: space-around;
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px; /* Thêm padding để có khoảng cách tốt hơn */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .relatedproducts-item .item {
+    flex-basis: calc(50% - 15px); /* 50% width with gap */
+    min-width: 0; /* Reset min-width for better responsiveness */
+  }
+}
+
+

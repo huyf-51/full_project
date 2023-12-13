@@ -1,0 +1,205 @@
+.cartitems {
+  margin: 100px 170px;
+}
+.cartitems hr {
+  height: 3px;
+  background: #e2e2e2;
+  border: 0;
+}
+.cartitems-format-main {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+  padding: 20px 0px;
+  color: #454545;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.cartitems-format {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+  padding: 20px 0px;
+  color: #454545;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.cartitems-product-icon {
+  height: 62px;
+}
+.cartitems-remove-icon {
+  width: 15px;
+  margin: 0px 40px;
+  cursor: pointer;
+}
+.cartitems-quatity {
+  width: 64.5px;
+  height: 51.113px;
+  color: black ;
+  /* border: 2px solid #ebebeb; */
+  background: #ffffff;
+}
+.cartitems-down {
+  display: flex;
+  margin: 100px 0px;
+}
+.cartitems-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px;
+  gap: 40px;
+}
+.cartitems-total-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px;
+}
+.cartitems-total button{
+  width: 262px;
+  height: 58px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cartitems-total button:active{
+  background: #ff0000;
+}
+.cartitems-promocode {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+.cartitems-promocode p {
+  color: #555;
+}
+.cartitems-promobox {
+  width: 504px;
+  margin-top: 15px;
+  padding-left: 20px;
+  height: 58px;
+  background: #eaeaea;
+}
+.cartitems-promobox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  width: 330px;
+  height: 50px;
+}
+.cartitems-promobox button {
+  width: 170px;
+  height: 58px;
+  font-size: 16px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Responsive styles for mobile (480px) */
+@media (max-width: 480px) {
+  .cartitems {
+    margin: 30px 20px; /* Adjust margin for better spacing on smaller screens */
+  }
+
+  .cartitems-format-main {
+    display: none; /* Hide the original content on smaller screens */
+  }
+
+  .cartitems-format-main-after
+  {
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column; /* Display items in a column on smaller screens */
+    gap: 15px; /* Adjust gap for better spacing on smaller screens */
+    padding: 10px 0; /* Adjust padding for better spacing on smaller screens */
+    text-align: center; /* Center align text on smaller screens */
+  }
+  .cartitems-format,
+  .ordered-products {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if items exceed the width */
+  }
+
+  .cartitems-format,
+  .ordered-product {
+    flex: 0 0 auto; /* Allow items to shrink or grow based on content */
+    box-sizing: border-box; /* Include padding and border in the width */
+    padding: 10px; /* Add padding to each item for spacing */
+    text-align: center;
+  }
+
+  .cartitems-format img,
+  .ordered-product img {
+    max-width: 40%; /* Adjust the width of the item image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px;
+  }
+
+  .cartitems-product-icon,
+  .ordered-product p {
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  .cartitems-remove-icon {
+    width: 20px; /* Adjust remove icon size for smaller screens */
+    cursor: pointer; /* Add cursor pointer for better interaction */
+  }
+
+  .cartitems-quantity {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ebebeb;
+    background: #fff;
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  .cartitems-down {
+    flex-direction: column; /* Display items in a column on smaller screens */
+    gap: 20px; /* Adjust gap for better spacing on smaller screens */
+  }
+
+  
+  .cartitems-total,
+  .cartitems-promocode {
+    width: 100%; /* Make both sections fill the entire width on smaller screens */
+    margin-bottom: 60px;
+  }
+
+  .cartitems-total {
+    margin-right: 0; /* Remove margin for better spacing on smaller screens */
+  }
+
+  .cartitems-total button {
+    width: 100%; /* Make the button fill the entire width on smaller screens */
+    margin-right: 0; /* Remove margin for better spacing on smaller screens */
+  }
+
+  .cartitems-promobox {
+    width: 100%; /* Make the promo box fill the entire width on smaller screens */
+    padding-left: 0; /* Adjust padding for better spacing on smaller screens */
+  }
+
+  .cartitems-promobox input {
+    width: 100%; /* Make the input fill the entire width on smaller screens */
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  .cartitems-promobox button {
+    width: 100%; /* Make the button fill the entire width on smaller screens */
+    margin-top: 10px; /* Adjust margin for better spacing on smaller screens */
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+}

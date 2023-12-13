@@ -1,0 +1,98 @@
+.offers{
+  width: 65%;
+  height: 60vh;
+  display: flex;
+  margin: auto;
+  padding: 0px 140px;
+  margin-bottom: 150px;
+}
+
+.offers-left{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.offers-left h1{
+  color: #171717;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.offers-left p{
+  color: #171717;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.offers-left button{
+  width: 282px;
+  height: 70px;
+  border-radius: 35px;
+  background: #ff4141;
+  border: none;
+  color: white;
+  font-size :15px; 
+  font-weight: 600;
+  margin-top: 30px; 
+  cursor: pointer;
+}
+
+.offers-right{
+  flex: 1;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 50px;
+}
+
+.offers-right img{
+  max-width: 700px; 
+  max-height: 800px; 
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  /* Add any additional styles as needed */
+}
+
+@media (max-width: 480px) {
+  .offers {
+    width: 90%; /* Giảm chiều rộng */
+    height: auto; /* Chuyển chiều cao thành auto để nội dung không bị tràn */
+    padding: 0 20px; /* Giảm padding */
+    margin-bottom: 100px; /* Giảm margin-bottom */
+  }
+
+  .offers-left {
+    padding: 0; /* Xóa padding */
+    text-align: center; /* Canh giữa nội dung */
+  }
+
+  .offers-left h1 {
+    font-size: 20px; /* Giảm kích thước font chữ */
+  }
+
+  .offers-left p {
+    font-size: 20px; /* Giảm kích thước font chữ */
+    font-weight: 500; /* Thay đổi font-weight */
+  }
+
+  .offers-left button {
+    width: 150px; /* Giảm chiều rộng của nút */
+    height: 30px; /* Giảm chiều cao của nút */
+    font-size: 13px; /* Giảm kích thước font chữ */
+    border-radius: 25px; /* Điều chỉnh border-radius cho nút */
+    margin-top: 20px; /* Giảm margin-top */
+  }
+
+  .offers-right {
+    justify-content: center; /* Canh giữa phần tử bên phải */
+    padding-top: 20px; /* Giảm padding top */
+  }
+
+  .offers-right img {
+    max-width: 120%; /* Đảm bảo hình ảnh lấp đầy phần tử cha */
+    max-height: 600px; /* Giảm chiều cao của hình ảnh */
+  }
+}

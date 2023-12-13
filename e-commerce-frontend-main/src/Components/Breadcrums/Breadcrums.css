@@ -1,0 +1,23 @@
+.breadcrums {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 60px 170px;
+  text-transform: capitalize;
+}
+/* Responsive styles for mobile (480px) */
+/* Responsive styles for mobile (480px) */
+@media (max-width: 480px) {
+  .breadcrums {
+    flex-direction: row; /* Display items in a column on smaller screens */
+    align-items: flex-start; /* Align items to the start of the column */
+    margin: 30px 20px; /* Adjust margin for better spacing on smaller screens */
+  }
+
+  .breadcrums img {
+    margin-right: 0; /* Remove margin-right for arrow images on smaller screens */
+  }
+}

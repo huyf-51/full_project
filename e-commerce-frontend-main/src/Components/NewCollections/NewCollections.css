@@ -1,0 +1,85 @@
+.new-collections{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.new-collections h1{
+  color: #171717; 
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.new-collections hr{
+  width: 120px;
+  height: 5px;
+  border-radius: 10px;
+  background: #252525;
+}
+
+.collections{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 50px;
+  gap: 30px; 
+  margin-left: 100px ;
+}
+
+.collections img {
+  max-width: 75%; /* Set the maximum width for the image */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+/* Media query for larger screens */
+@media (max-width: 1600px) {
+  .collections {
+    grid-template-columns: repeat(3, 1fr); /* Display two columns on screens wider than 768px */
+    margin-left: 0; /* Remove left margin for larger screens */
+  }
+
+  .collections img {
+    max-width: 90%; /* Set the maximum width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+  
+}
+@media (max-width: 480px) {
+  .new-collections h1 {
+    font-size: 30px; /* Further reduce the font size for smaller screens */
+    margin-top: 10px; /* Adjust top margin */
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+
+  .new-collections hr {
+    width: 40px; /* Further reduce the width of the line */
+    height: 2px; /* Further reduce the height of the line */
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+
+  .collections {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enable horizontal scrolling with mandatory snapping */
+    gap: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%; /* Make the container take up the full width */
+  }
+  
+  .collections img {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 5px;
+    scroll-snap-align: start; /* Snap each item to the start of the container */
+  }
+  
+  .collections p {
+    font-size: 12px;
+  }
+
+
+}

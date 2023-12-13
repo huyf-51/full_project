@@ -1,0 +1,82 @@
+.popular{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 100px;
+  
+}
+
+.popular h1{
+  color: #171717; 
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.popular hr{
+  width: 120px;
+  height: 5px;
+  border-radius: 10px;
+  background: #252525;
+}
+
+/* .popular-item{
+  margin-top: 10px;
+  display:flex;
+  gap: 10px;
+} */
+
+.popular-item {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row; 
+  align-items: center; /* Center items horizontally */
+  gap: 15px; /* Add some vertical spacing between items */
+  /* margin-left: 70px; */
+}
+
+.popular-item img {
+  max-width: 80%; /* Set the maximum width for the image */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+@media (max-width: 1600px) {
+  .popular h1 {
+    font-size: 30px; /* Further reduce the font size for smaller screens */
+    margin-top: 10px; /* Adjust top margin */
+  }
+
+  .popular hr {
+    width: 40px; /* Further reduce the width of the line */
+    height: 2px; /* Further reduce the height of the line */
+  }
+
+  .popular-item {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto; /* Set both left and right margins to auto for centering */
+    max-width: 80%; /* Set a maximum width for the item */
+  }
+
+  .popular-item img {
+    max-width: 100%; /* Set the maximum width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .popular-item {
+    padding: 10px; /* Thêm padding để có khoảng cách tốt hơn */
+    overflow-x: auto; /* Cho phép cuộn ngang khi có nhiều item hơn chiều rộng màn hình */
+    -webkit-overflow-scrolling: touch; /* Cho phép cuộn mượt trên iOS */
+  }
+
+  .popular-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}

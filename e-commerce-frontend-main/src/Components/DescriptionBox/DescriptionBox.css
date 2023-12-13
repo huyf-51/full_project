@@ -1,0 +1,48 @@
+.descriptionbox {
+  margin: 120px 170px;
+}
+.descriptionbox-navigator {
+  display: flex;
+}
+.descriptionbox-nav-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  width: 171px;
+  height: 70px;
+  border: 1px solid #d0d0d0;
+}
+.descriptionbox-nav-box.fade{
+    background: #FBFBFB;
+    color: #555;
+}
+.descriptionbox-description{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #D0D0D0;
+    padding: 48px;
+    padding-bottom: 70px;
+}
+
+/* Responsive styles for mobile (480px) */
+@media (max-width: 480px) {
+  .descriptionbox {
+    margin: 60px 20px; /* Adjust margin for better spacing on smaller screens */
+  }
+
+  .descriptionbox-navigator {
+    flex-direction: column; /* Display navigation boxes in a column on smaller screens */
+    gap: 15px; /* Add space between navigation boxes */
+  }
+
+  .descriptionbox-nav-box {
+    width: 100%; /* Make navigation boxes fill the entire width of the container */
+  }
+
+  .descriptionbox-description {
+    padding: 20px; /* Adjust padding for better spacing on smaller screens */
+  }
+}
