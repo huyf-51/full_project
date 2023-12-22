@@ -81,7 +81,7 @@ const LoginSignup = () => {
     let dataObj;
 
     // call api to sign up
-    await fetch('${process.env.REACT_APP_API}/auth/signup', {
+    await fetch(`${process.env.REACT_APP_API}/auth/signup`, {
       method: 'POST',
       headers: {
         Accept: 'application/form-data',
