@@ -68,7 +68,7 @@ const LoginSignup = () => {
     }
 
     // Password validation: Check if password has at least one special character
-    if (!/[@#$%^&+=]/.test(formData.password)) {
+    if (!/[@#$%^&+=!*]/.test(formData.password)) {
       alert("Password must contain at least one special character.");
       return;
     }
