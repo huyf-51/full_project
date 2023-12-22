@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const EditProduct = () => {
+  // useParams to get id of product 
   const { id } = useParams()
 
   const [previewImage, setPreviewImage] = useState({})
@@ -18,6 +19,7 @@ const EditProduct = () => {
     old_price: ""
   });
 
+  // function to call api to get product details for update
   const editProduct = async () => {
     await fetch(`${process.env.REACT_APP_SERVER_URL}/product/editproduct/${id}`)
       .then((res) => res.json())
@@ -32,12 +34,12 @@ const EditProduct = () => {
     }
   }, [image])
 
+  // call api in the initial render
   useEffect(() => {
     editProduct()
   }, [])
 
-  console.log(typeof productDetails.image);
-
+  // function to update product
   const UpdateProduct = async () => {
 
     let dataObj;
@@ -47,6 +49,7 @@ const EditProduct = () => {
       let formData = new FormData();
       formData.append('product', image);
 
+      // call api upload image
       await fetch(`${process.env.REACT_APP_SERVER_URL}/product/upload`, {
         method: 'POST',
         headers: {
@@ -59,6 +62,8 @@ const EditProduct = () => {
       if (dataObj.success) {
         product.image = dataObj.image_url;
         console.log(product);
+
+        // call api to update product after edit info in case image change
         await fetch(`${process.env.REACT_APP_SERVER_URL}/product/updateproduct/${id}`, {
           method: 'POST',
           headers: {
@@ -71,6 +76,7 @@ const EditProduct = () => {
           .then((data) => { data.success ? alert("Product Updated") : alert("Failed") });
       }
     } else {
+      // call api to update product after edit info in case image not change
       await fetch(`${process.env.REACT_APP_SERVER_URL}/product/updateproduct/${id}`, {
         method: 'POST',
         headers: {
@@ -84,11 +90,13 @@ const EditProduct = () => {
     }
   }
 
+  // image set state when product details change
   const changeHandler = (e) => {
     console.log(e);
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
   }
 
+  // set image state when image change
   const imageHandler = (e) => {
     setImage(e.target.files[0]);
     setProductDetails((pre) => {

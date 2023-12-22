@@ -11,6 +11,7 @@ const Admin = () => {
   return (
     <div className="admin">
       <Sidebar />
+      {/* routing url for three route*/}
       <Routes>
         <Route path="/editproduct/:id" element={<EditProduct />} />
         <Route path="/addproduct" element={<AddProduct />} />

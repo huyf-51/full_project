@@ -3,7 +3,7 @@ import "./AddProduct.css";
 import upload_area from "../Assets/upload_area.svg";
 
 const AddProduct = () => {
-
+  // state variables
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
     name: "",
@@ -13,7 +13,8 @@ const AddProduct = () => {
     new_price: "",
     old_price: ""
   });
-
+  
+  // Function add product
   const AddProduct = async () => {
 
     let dataObj;
@@ -22,6 +23,7 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append('product', image);
 
+    // call api to upload the image to server
     await fetch(`${process.env.REACT_APP_SERVER_URL}/product/upload`, {
       method: 'POST',
       headers: {
@@ -32,6 +34,7 @@ const AddProduct = () => {
       .then((resp) => resp.json())
       .then((data) => { dataObj = data });
 
+    // if the image upload successfully set the image url and call api to add product
     if (dataObj.success) {
       product.image = dataObj.image_url;
       console.log(product);
@@ -49,11 +52,13 @@ const AddProduct = () => {
     }
   }
 
+  // set productDetails when state variable change
   const changeHandler = (e) => {
     console.log(e);
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
   }
 
+  // set state for image
   const imageHandler = (e) => {
     console.log(e.target.files[0]);
     setImage(e.target.files[0]);

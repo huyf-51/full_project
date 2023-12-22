@@ -1,12 +1,14 @@
 const Product = require("../models/product")
 
 class HomeController {
+    // show all product in DB
     async showAllProduct(req, res) {
         let products = await Product.find({});
         console.log("All Products");
         res.send(products);
     }
 
+    // show all new collection
     async showNewCollections(req, res) {
         let products = await Product.find({});
         let arr = products.slice(1).slice(-8);
@@ -14,6 +16,7 @@ class HomeController {
         res.send(arr);
     }
 
+    // show all popular product
     async showPopular(req, res) {
         let products = await Product.find({});
         let arr = products.splice(0, 4);
@@ -21,6 +24,7 @@ class HomeController {
         res.send(arr);
     }
 
+    // show products by category for each page
     async showProduct(req, res) {
         let startIndex = (req.query.page - 1) * 4
         let category = req.params.category
@@ -31,12 +35,12 @@ class HomeController {
         res.json({ products: products, productCount: productCount })
     }
 
+    // show related product
     async showRelatedProduct(req, res) {
         const product = await Product.find({ id: req.params.productId })
         const relatedProduct = await Product.find({ category: product[0].category, id: { $ne: req.params.productId } }) 
             .limit(4)
             .exec()
-            // console.log("related product: ", relatedProduct);
         res.send(relatedProduct)
     }
 }

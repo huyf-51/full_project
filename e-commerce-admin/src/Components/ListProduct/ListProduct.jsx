@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 const Listproduct = () => {
   const navigate = useNavigate()
 
+  // state varible
   const [allproducts, setAllproducts] = useState([]);
 
   const fetchInfo = () => {
+    // call api to get all product
     fetch(`${process.env.REACT_APP_SERVER_URL}/allproducts`)
       .then((res) => res.json())
       .then((data) => setAllproducts(data))
@@ -19,6 +21,7 @@ const Listproduct = () => {
     fetchInfo();
   }, [])
 
+  // function call api to remove product
   const removeproduct = async (id) => {
     await fetch(`${process.env.REACT_APP_SERVER_URL}/product/removeproduct`, {
       method: 'POST',
@@ -29,24 +32,15 @@ const Listproduct = () => {
       body: JSON.stringify({ id: id }),
     })
 
+    // call api to get all product after remove
     fetch(`${process.env.REACT_APP_SERVER_URL}/allproducts`)
       .then((res) => res.json())
       .then((data) => setAllproducts(data))
   }
 
-  const updateproduct = async (id) => {
+  // function to navigate to editproduct page
+  const updateproduct = (id) => {
     navigate(`/editproduct/${id}`)
-
-    // await fetch(`${process.env.REACT_APP_SERVER_URL}/product/editproduct`, {
-    //   method: 'GET',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ id: id }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => )
   }
 
   console.log(allproducts);

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 
+// function to connect DB 
 async function connect() {
 
     try {
-        await mongoose.connect('mongodb+srv://luanhuuphan0505:luanlam1@cluster0.hnxxyyy.mongodb.net/e-commerce', {
+        await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
