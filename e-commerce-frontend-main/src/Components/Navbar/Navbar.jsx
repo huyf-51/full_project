@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
 const Navbar = () => {
+    // state variable
     const [menu, setMenu] = useState("shop");
     const [showDropdown, setShowDropdown] = useState(false);
     const { getTotalCartItems } = useContext(ShopContext);
+    // get item in local storage
     const authToken = localStorage.getItem('auth-token');
     const userName = localStorage.getItem('username');
     // Dropdown
@@ -18,6 +20,7 @@ const Navbar = () => {
     const dropdownRef = useRef(null);
 
     useEffect(() => {
+        // handle outside click when click to username button
         const handleOutsideClick = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setShowDropdown(false);
@@ -31,7 +34,7 @@ const Navbar = () => {
         };
     }, []);
 
-
+    // remove data in local storage when log out
     const handleLogout = () => {
         localStorage.removeItem('auth-token');
         localStorage.removeItem('username');
@@ -40,11 +43,6 @@ const Navbar = () => {
 
     const handleDropdownToggle = () => {
         setShowDropdown(!showDropdown);
-    };
-
-    const handleDropdownOptionSelect = (selectedOption) => {
-        setMenu(selectedOption);
-        setShowDropdown(false);
     };
 
     const toggleOptions = () => {
@@ -70,7 +68,6 @@ const Navbar = () => {
                 <li onClick={() => { setMenu("Mac") }}><Link style={{ textDecoration: 'none' }} to='/Mac'>Mac</Link>{menu === "Mac" ? <hr /> : <></>}</li>
                 <li onClick={() => { setMenu("Watch") }}><Link style={{ textDecoration: 'none' }} to='/Watch'>Watch</Link>{menu === "Watch" ? <hr /> : <></>}</li>
                 <li onClick={() => { setMenu("Promotion") }}><Link style={{ textDecoration: 'none' }} to='/Promotion'>Promotion</Link>{menu === "Promotion" ? <hr /> : <></>}</li>
-                {/* <li onClick={() => { setMenu("Support") }}><Link style={{ textDecoration: 'none' }} to='/Support'>Support</Link>{menu === "Support" ? <hr /> : <></>}</li> */}
             </ul>
             <div className="nav-login-cart">
                 {authToken ? (

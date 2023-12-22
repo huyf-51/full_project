@@ -5,7 +5,10 @@ import { ShopContext } from "../../Context/ShopContext";
 import {Link} from "react-router-dom";
 
 const CartItems = () => {
+  // get all product 
   const {products} = useContext(ShopContext);
+
+  //get all cart variable
   const {cartItems,removeFromCart,getTotalCartAmount} = useContext(ShopContext);
 
   return (
@@ -20,7 +23,7 @@ const CartItems = () => {
       </div>
       <hr />
       {products.map((e)=>{
-
+        // if user have product in cart show all product detail in cart
         if(cartItems[e.id]>0)
         {
           return  <div>

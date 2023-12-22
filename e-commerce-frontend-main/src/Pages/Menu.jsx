@@ -6,14 +6,16 @@ import NewCollections from '../Components/NewCollections/NewCollections'
 import NewsLetter from '../Components/NewsLetter/NewsLetter'
 
 const Menu = () => {
+  // state variable
   const [popular, setPopular] = useState([]);
   const [newcollection, setNewCollection] = useState([]);
 
+  // call api to get product 
   const fetchInfo = () => { 
-    fetch('http://localhost:4000/popular') 
+    fetch(`${process.env.REACT_APP_API}/popular`) 
             .then((res) => res.json()) 
             .then((data) => setPopular(data))
-    fetch('http://localhost:4000/newcollections') 
+    fetch(`${process.env.REACT_APP_API}/newcollections`) 
             .then((res) => res.json()) 
             .then((data) => setNewCollection(data))
     }

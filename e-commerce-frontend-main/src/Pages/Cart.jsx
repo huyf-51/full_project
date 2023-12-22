@@ -7,6 +7,7 @@ const Cart = () => {
   const auth = localStorage.getItem("auth-token");
   return (
     <div>
+      {/* enter cart route when user logged in*/}
       {auth ? <CartItems/> : <LoginSignup />}
     </div>
   )

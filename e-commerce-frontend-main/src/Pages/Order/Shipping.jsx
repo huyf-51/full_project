@@ -3,6 +3,8 @@ import '../CSS/Shipping.css'
 import { useNavigate } from "react-router-dom";
 
 const Shipping = () => {
+
+  // state variable
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [province, setProvince] = useState("");

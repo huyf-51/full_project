@@ -6,6 +6,7 @@ const ShopContextProvider = (props) => {
 
   const [products,setProducts] = useState([]);
   
+  // function to initial cart
   const getDefaultCart = () => {
     let cart = {};
     for (let i = 0; i < 300; i++) {
@@ -17,13 +18,15 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    fetch('http://localhost:4000/allproducts') 
+    // call api to get all product
+    fetch(`${process.env.REACT_APP_API}/allproducts`) 
           .then((res) => res.json()) 
           .then((data) => setProducts(data))
 
+    // if user logged in call api to get cart
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/cart/getcart', {
+      fetch(`${process.env.REACT_APP_API}/cart/getcart`, {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
@@ -38,6 +41,7 @@ const ShopContextProvider = (props) => {
 
 }, [])
   
+  // function to get total cart amount
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
@@ -49,6 +53,7 @@ const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  // function to get all cart item
   const getTotalCartItems = () => {
     let totalItem = 0;
     for (const item in cartItems) {
@@ -59,11 +64,12 @@ const ShopContextProvider = (props) => {
     return totalItem;
   };
 
+  // function to call api to add product to cart
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/cart/addtocart', {
+      fetch(`${process.env.REACT_APP_API}/cart/addtocart`, {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
@@ -77,11 +83,12 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  // function to remove product from cart
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/cart/removefromcart', {
+      fetch(`${process.env.REACT_APP_API}/cart/removefromcart`, {
       method: 'POST',
       headers: {
         Accept:'application/form-data',

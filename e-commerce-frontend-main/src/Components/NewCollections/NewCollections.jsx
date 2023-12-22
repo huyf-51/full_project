@@ -8,6 +8,7 @@ const NewCollections = (props) => {
       <h1>NEW COLLECTIONS</h1>
       <hr />
       <div className="collections">
+        {/* show all product in new collection */}
         {props.data.map((item,i)=>{
                 return <Item id={item.id} key={i} name={item.name} image={item.image}  new_price={item.new_price} old_price={item.old_price}/>
             })}

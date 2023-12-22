@@ -4,14 +4,17 @@ import Item from "../Components/Item/Item";
 
 const ShopCategory = (props) => {
 
+  // limit product in every page
   let limit = 4;
 
+  // state variable
   const [allproducts, setAllProducts] = useState([]);
   const [page, setPage] = useState(1)
   const [productCount, setProductCount] = useState()
-  //update
+
+  // call api to get product for each page by product category and page number
   const fetchInfo = async (page) => {
-    await fetch(`http://localhost:4000/${props.category}?page=${page}`)
+    await fetch(`${process.env.REACT_APP_API}/${props.category}?page=${page}`)
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.products)
@@ -19,15 +22,18 @@ const ShopCategory = (props) => {
       })
   }
 
+  // reset page when enter to other category
   useEffect(() => {
     setPage(1)
     fetchInfo(1);
   }, [props.category])
 
+  // call api again when change category and page number
   useEffect(() => {
     fetchInfo(page);
   }, [page, props.category])
-  //update
+  
+  // set page when it change
   const handlePageChange = (newPage) => {
     setPage(newPage);
   }

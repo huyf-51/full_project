@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CSS/Promotion.css';
 
+// promotion page
 const Promotion = () => {
   return (
     <div className="promotion-container">

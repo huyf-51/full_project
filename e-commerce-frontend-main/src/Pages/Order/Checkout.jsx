@@ -1,12 +1,14 @@
 // Checkout.jsx
 import React, { useState, useContext, useEffect } from "react";
-import "./Checkout.css";
+import "../CSS/Checkout.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
  
 const Checkout = () => {
 
   const navigate = useNavigate()
+
+  // state variable
   const { products } = useContext(ShopContext);
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -14,10 +16,8 @@ const Checkout = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("cashOnDelivery");
-  // const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
 
-  
-
+  // set state when confirm payment method
   const handleConfirmation = () => {
     if (selectedPaymentMethod) {
       setIsConfirmed(true);
@@ -26,6 +26,7 @@ const Checkout = () => {
     }
   };
 
+  // set notify when confirm payment method
   const handleConfirmation2 = () => {
     if (selectedPaymentMethod) {
       alert(`Selected Payment Method: ${selectedPaymentMethod}`);
@@ -35,6 +36,7 @@ const Checkout = () => {
     }
   };
 
+  // call api to add order 
   const handleOrderAction = (e) => {
     e.preventDefault()
     fetch('http://localhost:4000/order/addOrder', {
@@ -58,12 +60,14 @@ const Checkout = () => {
     .then((data) => {
       console.log(data);
       if (data.success) {
-        alert("đặt hàng thành công")
+        alert("order successfully")
+        // navigate to home page when order success
         navigate("/")
       }
     })
   }
 
+  // get information in url query
   const name = queryParams.get("name");
   const address = queryParams.get("address");
   const province = queryParams.get("province");
@@ -122,8 +126,8 @@ const Checkout = () => {
         <div className="order-summary">
           <h3>Ordered Products</h3>
           <div className="ordered-products">
+            {/* get all product in cart*/}
             {products.map((e) => {
-
               if (cartItems[e.id] > 0) {
                 return <div>
                   <div className="ordered-product">
